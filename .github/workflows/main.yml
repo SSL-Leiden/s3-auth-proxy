@@ -20,6 +20,6 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@master
     - name: Build and publish Docker image
-      uses: matootie/github-docker:v3.0.0
+      uses: matootie/github-docker@v3.0.0
       with:
         accessToken: ${{ github.token }}
