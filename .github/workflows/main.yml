@@ -6,7 +6,13 @@ name: DockerImageBuild
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}/app
+  IMAGE_TAG: latest
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -17,9 +23,24 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@master
-    - name: Build and publish Docker image
-      uses: matootie/github-docker@v3.0.0
-      with:
-        accessToken: ${{ github.token }}
+      - name: Checkout repository
+        id: docker_checkout
+        uses: actions/checkout@v2
+
+      - name: Log in to the Container registry
+        id: docker_login
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          context: ./
+          file: ./Dockerfile
+          target: app
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
