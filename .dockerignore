@@ -1,3 +1,13 @@
-/.env
-/Dockerfile
+/.github
+/.yarn/.cache
+/.yarn/install-stage.gz
+/node_modules
+
+/.dockerignore
+/.env*
+/.gitignore
+/.pnp.cjs
 /docker-compose.yml
+/Dockerfile
+/LICENSE
+/README.md

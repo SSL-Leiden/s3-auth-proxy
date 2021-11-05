@@ -1,23 +1,19 @@
 {
   "name": "s3-auth-proxy",
+  "author": "jnoordsij",
+  "license": "ISC",
   "version": "1.0.0",
   "description": "s3-auth-proxy",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jnoordsij/s3-auth-proxy.git"
+  },
   "main": "s3-auth-proxy.js",
   "dependencies": {
     "aws-sdk": "^2.678.0"
   },
-  "devDependencies": {},
   "scripts": {
     "start": "node ./s3-auth-proxy.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/armaniacs/s3-reverse-proxy.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/armaniacs/s3-reverse-proxy/issues"
-  },
-  "homepage": "https://github.com/armaniacs/s3-reverse-proxy#readme"
+  "packageManager": "yarn@3.1.0"
 }
