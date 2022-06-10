@@ -2,23 +2,23 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 5
+  version: 6
   cacheKey: 8
 
-"aws-sdk@npm:^2.678.0":
-  version: 2.1022.0
-  resolution: "aws-sdk@npm:2.1022.0"
+"aws-sdk@npm:^2.1152.0":
+  version: 2.1152.0
+  resolution: "aws-sdk@npm:2.1152.0"
   dependencies:
     buffer: 4.9.2
     events: 1.1.1
     ieee754: 1.1.13
-    jmespath: 0.15.0
+    jmespath: 0.16.0
     querystring: 0.2.0
     sax: 1.2.1
     url: 0.10.3
-    uuid: 3.3.2
+    uuid: 8.0.0
     xml2js: 0.4.19
-  checksum: 48a5a6fb89eafb5790af0ec897d79dbc60395f844ec89e3f371db244c2596ea8e689430c65f4008bf198f1090b5d24fcdcbeaf236a56847be688a98d65f4d724
+  checksum: 77cf65206dd4e7df584eab56bd3c34aa925d12fff4af3aae7e739cc2f4c431d1f3c86b35ce9cc66f9d3957756e8a77980f2b684fe521135da6b5b2b8e3d989aa
   languageName: node
   linkType: hard
 
@@ -68,10 +68,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jmespath@npm:0.15.0":
-  version: 0.15.0
-  resolution: "jmespath@npm:0.15.0"
-  checksum: 353bb9e69cc4c1560be0a4df43cb4020abc246e1c60cb5b55dcc76d8c858383f1633faf22ccaf6a5e09568a2077d0f4f1e989e6fcfd496b5cef87964cc8cb9e7
+"jmespath@npm:0.16.0":
+  version: 0.16.0
+  resolution: "jmespath@npm:0.16.0"
+  checksum: 2d602493a1e4addfd1350ac8c9d54b1b03ed09e305fd863bab84a4ee1f52868cf939dd1a08c5cdea29ce9ba8f86875ebb458b6ed45dab3e1c3f2694503fb2fd9
   languageName: node
   linkType: hard
 
@@ -93,7 +93,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "s3-auth-proxy@workspace:."
   dependencies:
-    aws-sdk: ^2.678.0
+    aws-sdk: ^2.1152.0
   languageName: unknown
   linkType: soft
 
@@ -121,12 +121,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uuid@npm:3.3.2":
-  version: 3.3.2
-  resolution: "uuid@npm:3.3.2"
+"uuid@npm:8.0.0":
+  version: 8.0.0
+  resolution: "uuid@npm:8.0.0"
   bin:
-    uuid: ./bin/uuid
-  checksum: 8793629d2799f500aeea9fcd0aec6c4e9fbcc4d62ed42159ad96be345c3fffac1bbf61a23e18e2782600884fee05e6d4012ce4b70d0037c8e987533ae6a77870
+    uuid: dist/bin/uuid
+  checksum: 56d4e23aa7ac26fa2db6bd1778db34cb8c9f5a10df1770a27167874bf6705fc8f14a4ac414af58a0d96c7653b2bd4848510b29d1c2ef8c91ccb17429c1872b5e
   languageName: node
   linkType: hard
 
