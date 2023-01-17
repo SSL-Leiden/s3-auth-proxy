@@ -10,15 +10,15 @@
   },
   "main": "s3-auth-proxy.js",
   "dependencies": {
-    "aws-sdk": "^2.1152.0",
-    "winston": "^3.6.0"
+    "aws-sdk": "^2.1295.0",
+    "winston": "^3.8.2"
   },
   "devDependencies": {
-    "eslint": "^8.7.0",
-    "prettier": "^2.5.1"
+    "eslint": "^8.32.0",
+    "prettier": "^2.8.3"
   },
   "scripts": {
     "start": "node ./s3-auth-proxy.js"
   },
-  "packageManager": "yarn@3.2.1"
+  "packageManager": "yarn@3.3.1"
 }
