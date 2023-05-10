@@ -16,8 +16,8 @@ FROM base-node AS builder
 
 WORKDIR /build
 
-COPY .yarn ./.yarn
-COPY .yarnrc.yml package.json yarn.lock ./
+COPY --link .yarn/ ./.yarn/
+COPY --link .yarnrc.yml package.json yarn.lock ./
 
 RUN yarn install --immutable
 
@@ -26,14 +26,14 @@ RUN yarn install --immutable
 FROM base-node AS app
 
 RUN \
-    mkdir /home/node/app && \
+    mkdir -p /home/node/app && \
     chown node /home/node/app
 
-USER node
 WORKDIR /home/node/app
 
-COPY package.json *.js ./
-COPY --from=builder /build/node_modules ./node_modules
+COPY --link package.json *.js ./
+COPY --link --from=builder /build/node_modules/ ./node_modules/
 
+USER node
 ENTRYPOINT ["npm", "start"]
 EXPOSE 8000/tcp
