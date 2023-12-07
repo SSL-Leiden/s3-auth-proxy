@@ -5,6 +5,7 @@
   "license": "ISC",
   "version": "1.0.0",
   "description": "s3-auth-proxy",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jnoordsij/s3-auth-proxy.git"
