@@ -20,5 +20,5 @@
   "scripts": {
     "start": "node ./s3-auth-proxy.js"
   },
-  "packageManager": "yarn@3.6.1"
+  "packageManager": "yarn@4.0.2"
 }
