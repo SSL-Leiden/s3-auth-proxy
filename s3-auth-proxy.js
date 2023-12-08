@@ -1,10 +1,12 @@
 // This file contains code from s3-reverse-proxy, licensed under Apache License 2.0.
 // See https://github.com/armaniacs/s3-reverse-proxy for more information.
 
-import { createServer, request as httpRequest } from "http"
-import { request as httpsRequest } from "https"
-import Signer from "./signer.js"
+import { createServer, request as httpRequest } from "node:http"
+import { request as httpsRequest } from "node:https"
+
 import { createLogger, format as logFormat, transports as logTransports } from "winston"
+
+import Signer from "./signer.js"
 
 const port = 8000,
     accessKeyId = process.env.ACCESSKEYID,
