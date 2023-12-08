@@ -1,10 +1,10 @@
 // This file contains code from s3-reverse-proxy, licensed under Apache License 2.0.
 // See https://github.com/armaniacs/s3-reverse-proxy for more information.
 
-import { createServer, request } from "http"
-import { request as _request } from "https"
+import { createServer, request as httpRequest } from "http"
+import { request as httpsRequest } from "https"
 import Signer from "./signer.js"
-import { createLogger, format as _format, transports as _transports } from "winston"
+import { createLogger, format as logFormat, transports as logTransports } from "winston"
 
 const port = 8000,
     accessKeyId = process.env.ACCESSKEYID,
@@ -17,12 +17,12 @@ const port = 8000,
 
 const logger = createLogger({
     level: logLevel,
-    format: _format.combine(
-        _format.errors({ stack: true }),
-        _format.colorize(),
-        _format.simple()
+    format: logFormat.combine(
+        logFormat.errors({ stack: true }),
+        logFormat.colorize(),
+        logFormat.simple()
     ),
-    transports: [new _transports.Console()],
+    transports: [new logTransports.Console()],
 })
 
 var main = function () {
@@ -83,9 +83,9 @@ var handle_request = function (client_request, client_response) {
 
         let upstream_request
         if (options.protocol == "https:") {
-            upstream_request = _request(options)
+            upstream_request = httpsRequest(options)
         } else {
-            upstream_request = request(options)
+            upstream_request = httpRequest(options)
         }
 
         client_request.addListener("data", function (chunk) {
