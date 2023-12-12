@@ -27,12 +27,14 @@ FROM base-node AS app
 
 RUN \
     mkdir -p /home/node/app && \
-    chown node /home/node/app
+    chown -R node:node /home/node/
 
 WORKDIR /home/node/app
 
-COPY --link package.json *.js ./
-COPY --link --from=builder /build/node_modules/ ./node_modules/
+# 1000 is the standard uid/gid for "node" in the NodeJS images
+# https://github.com/nodejs/docker-node/blob/89afeedf0542d995e7be5e99e30719fc7b2f512d/Dockerfile-alpine.template#L5
+COPY --link --chown=1000:1000 package.json *.js ./
+COPY --link --chown=1000:1000 --from=builder /build/node_modules/ ./node_modules/
 
 USER node
 ENTRYPOINT ["npm", "start"]

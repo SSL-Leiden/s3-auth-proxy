@@ -1,10 +1,12 @@
 // This file contains code from s3-reverse-proxy, licensed under Apache License 2.0.
 // See https://github.com/armaniacs/s3-reverse-proxy for more information.
 
-const http = require("http"),
-    https = require("https"),
-    Signer = require("./signer"),
-    winston = require("winston")
+import { createServer, request as httpRequest } from "node:http"
+import { request as httpsRequest } from "node:https"
+
+import { createLogger, format as logFormat, transports as logTransports } from "winston"
+
+import Signer from "./signer.js"
 
 const port = 8000,
     accessKeyId = process.env.ACCESSKEYID,
@@ -15,18 +17,18 @@ const port = 8000,
     allowedBuckets = process.env.ALLOWED_BUCKETS.split(","),
     logLevel = process.env.LOG_LEVEL || "info"
 
-const logger = winston.createLogger({
+const logger = createLogger({
     level: logLevel,
-    format: winston.format.combine(
-        winston.format.errors({ stack: true }),
-        winston.format.colorize(),
-        winston.format.simple()
+    format: logFormat.combine(
+        logFormat.errors({ stack: true }),
+        logFormat.colorize(),
+        logFormat.simple()
     ),
-    transports: [new winston.transports.Console()],
+    transports: [new logTransports.Console()],
 })
 
 var main = function () {
-    http.createServer(handle_request).listen(port, "0.0.0.0")
+    createServer(handle_request).listen(port, "0.0.0.0")
     logger.info(
         "101\tSTART\t-\t-\tProxying to " + upstreamURL.href + " on port " + port
     )
@@ -83,9 +85,9 @@ var handle_request = function (client_request, client_response) {
 
         let upstream_request
         if (options.protocol == "https:") {
-            upstream_request = https.request(options)
+            upstream_request = httpsRequest(options)
         } else {
-            upstream_request = http.request(options)
+            upstream_request = httpRequest(options)
         }
 
         client_request.addListener("data", function (chunk) {

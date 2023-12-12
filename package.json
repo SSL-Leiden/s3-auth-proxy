@@ -1,24 +1,27 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "s3-auth-proxy",
   "author": "jnoordsij",
   "license": "ISC",
   "version": "1.0.0",
   "description": "s3-auth-proxy",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jnoordsij/s3-auth-proxy.git"
   },
   "main": "s3-auth-proxy.js",
   "dependencies": {
-    "aws-sdk": "^2.1431.0",
-    "winston": "^3.10.0"
+    "aws-sdk": "^2.1513.0",
+    "winston": "^3.11.0"
   },
   "devDependencies": {
-    "eslint": "^8.46.0",
-    "prettier": "^3.0.1"
+    "eslint": "^8.55.0",
+    "prettier": "^3.1.0"
   },
   "scripts": {
+    "lint": "eslint --max-warnings 0 --ignore-path .gitignore ./",
     "start": "node ./s3-auth-proxy.js"
   },
-  "packageManager": "yarn@3.6.1"
+  "packageManager": "yarn@4.0.2"
 }

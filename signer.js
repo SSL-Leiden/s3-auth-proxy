@@ -1,15 +1,16 @@
 // This file contains code from the AWS SDK for JavaScript, licensed under Apache License 2.0.
 // See https://github.com/aws/aws-sdk-js for more information.
 
-const AWS = require("aws-sdk"),
-    hmac = AWS.util.crypto.hmac,
-    sha256 = AWS.util.crypto.sha256
+import AWS from 'aws-sdk';
+
+const hmac = AWS.util.crypto.hmac;
+const sha256 = AWS.util.crypto.sha256;
 
 let cachedKeys = {}
 let cacheQueue = []
 const maxCacheEntries = 50
 
-class Signer {
+export default class Signer {
     constructor(request, logger) {
         this.request = request
         this.headers = request.headers
@@ -207,5 +208,3 @@ class Signer {
         return AWS.util.queryParamsToString(q)
     }
 }
-
-module.exports = Signer
