@@ -4,7 +4,7 @@
 ARG ALPINE_VERSION=""
 ARG ALPINE_TAG="${ALPINE_VERSION:-latest}"
 
-ARG NODE_VERSION="20"
+ARG NODE_VERSION="22"
 
 # Base image
 # --------------------------------------------------------------------------------
