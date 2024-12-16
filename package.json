@@ -12,12 +12,12 @@
   },
   "main": "s3-auth-proxy.js",
   "dependencies": {
-    "aws-sdk": "^2.1626.0",
-    "winston": "^3.13.0"
+    "aws-sdk": "^2.1692.0",
+    "winston": "^3.17.0"
   },
   "devDependencies": {
-    "eslint": "^8.57.0",
-    "prettier": "^3.2.5"
+    "eslint": "^8.57.1",
+    "prettier": "^3.4.2"
   },
   "scripts": {
     "lint": "eslint --max-warnings 0 --ignore-path .gitignore ./",
