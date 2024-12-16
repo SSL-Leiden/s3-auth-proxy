@@ -23,5 +23,5 @@
     "lint": "eslint --max-warnings 0 --ignore-path .gitignore ./",
     "start": "node ./s3-auth-proxy.js"
   },
-  "packageManager": "yarn@4.2.2"
+  "packageManager": "yarn@4.5.3"
 }
