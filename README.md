@@ -1,3 +1,7 @@
+# 📌 **Deprecation Notice**
+
+> Given that this Digital Ocean spaces now have native support for bucket-based access, see https://docs.digitalocean.com/products/spaces/#6-december-2024, this repository and corresponding image are considered deprecated and will receive no further updates.
+
 # s3-auth-proxy
 
 [![Build Status](https://ci.strahlungsfrei.de/api/badges/djmaze/s3-auth-proxy/status.svg)](https://ci.strahlungsfrei.de/djmaze/s3-auth-proxy)
